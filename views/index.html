@@ -1,5 +1,17 @@
 <html>
+    <head>
+        <title>Listas de projetos | 01</title>
+        <link rel="stylesheet" href="/public/style.css">
+    </head>
+
     <body>
-        <h2>Ola <%=nome %></h2> <!--Esse <%=nome%> é o parametro recebido pelo arquivo index.js-->
+        <!--Mostrando as tarefas-->
+      <div class="tarefas">
+        <% for(let i = 0; i < tarefasList.length; i++){ %>
+
+            <p><%= tarefasList[i] %> <a href="/deletar/<%= i %>">X</a></p>
+
+        <% } %>
+      </div>
     </body>
 </html>
