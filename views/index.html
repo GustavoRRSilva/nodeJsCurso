@@ -7,6 +7,11 @@
     <body>
         <!--Mostrando as tarefas-->
       <div class="tarefas">
+        <form method="post">
+            <input type="text" name="tarefas" >
+            <input type="submit" value="Inserir" name="acao">
+        </form>
+
         <% for(let i = 0; i < tarefasList.length; i++){ %>
 
             <p><%= tarefasList[i] %> <a href="/deletar/<%= i %>">X</a></p>

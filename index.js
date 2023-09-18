@@ -1,6 +1,12 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.json() );
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
 
 app.engine("html", require("ejs").renderFile); //Seta a engine do ejs para renderizar html
 app.set("view engine", "html"); //seta a view engine para html
@@ -20,6 +26,11 @@ app.get('/deletar/:id',(req, res)=>{
             return val;
         }
     })
+    res.render('index',{tarefasList:tarefas})
+})
+
+app.post('/',(req,res)=>{
+    tarefas.push(req.body.tarefas);
     res.render('index',{tarefasList:tarefas})
 })
 
